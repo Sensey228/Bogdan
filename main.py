@@ -1,22 +1,20 @@
-nums = [n for n in range(20)]
-print(nums)
-print(nums[2:5])
-name = 'Python is not a snake'
-print(name[::-1])
+import random
 
-nums = [n * 2 for n in range(1, 21)]
-print(nums)
-print(nums[2:7])
+stock = []
+for i in range(7):
+  for j in range(i, 7):
+    stock.append([i, j])
 
-str1 = 'Python is not just a mere snake'
-print(str1[10:18])
+stock = [[i, j] for i in range(7) for j in range(i, 7)]
+print(stock)
+print()
 
-print(str1[::-1])
-print(str1[7::])
 
-new_str = str1[:]
-print(new_str)
 
-my_list = ['Java', 'Python', 'Kotlin']
-print(my_list[:2])
-print(my_list[:99999999])
+player = (random.choices(stock, k=7))
+print(player)
+print()
+comp = (random.choices(stock, k=7))
+print(comp)
+
+
