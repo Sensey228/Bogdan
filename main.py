@@ -1,17 +1,16 @@
-# Write a program that calculates the length of a word from 
-# the input and prints it out together 
-# with the word in the format:
+# % foramatting
+print('%.3f' % (11 /  3))
+name = 'Mary'; age = 15
+print('Hi %s you are %d' % (name, age))
 
-# "word has N letters"
+# .format()
+print('{} {} {}'.format('Me', 'and', 'You'))
+print('{who} {} {}'.format('Me', 'and', who='You'))
+print('{who} {} {}'.format('Me', 'and', who='You'))
+print('{2} {1} {0}'.format('Me', 'and', 'You'))
 
-# There will always be more than one letter in the word.
-
-# Sample Input 1:
-# serendipity
-
-# Sample Output 1:
-# serendipity has 11 letters
-
-word = input()
-len_ = len(word)
-print(word,"has",len_,"letters")
+# f'{var]'
+a = 5
+print(f'%.{a}f' % (11 /  3))
+name = 'Jonny Cage'
+print(f'This is the end of you, {name}')
