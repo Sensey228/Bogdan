@@ -1,16 +1,20 @@
-# % foramatting
-print('%.3f' % (11 /  3))
-name = 'Mary'; age = 15
-print('Hi %s you are %d' % (name, age))
 
-# .format()
-print('{} {} {}'.format('Me', 'and', 'You'))
-print('{who} {} {}'.format('Me', 'and', who='You'))
-print('{who} {} {}'.format('Me', 'and', who='You'))
-print('{2} {1} {0}'.format('Me', 'and', 'You'))
+# 0 — 15,527: 0% tax
 
-# f'{var]'
-a = 5
-print(f'%.{a}f' % (11 /  3))
-name = 'Jonny Cage'
-print(f'This is the end of you, {name}')
+# 15,528 — 42,707: 15% tax
+
+# 42,708 — 132,406: 25% tax
+
+# 132,407 and more: 28% tax
+
+# The tax for 99999 is 25%. That is 25000 dollars!
+
+num = int(input())
+if num <= 15527:
+  k = (0)
+elif num >= 15528 and num <= 42707:
+  k = int(0,15)
+
+g = num * k
+proz = k * 100
+print("The tax for", num,"is",proz ,". That is",g,"dollars")
