@@ -1,9 +1,7 @@
-nums = [0, 1, 1, 2, 3, 5, 8]
+my_list = [3, 9, 27, 81, 243, 729, 2187]
 
 
-print(nums[0:-1])
-print(nums[0::1])
-print(nums[:])
-print(nums[1:])
-
-
+print(my_list[-1:]) # [2187]
+print(my_list[:]) # [3, 9, 27, 81, 243, 729, 2187]
+print(my_list[2:-1:-3]) # []
+print(my_list[2:0:-3]) # [27]
