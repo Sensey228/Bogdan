@@ -1,71 +1,28 @@
-import random
-dubl = 0
-while dubl != 1:
+from random import randint, shuffle
 
-  stock = []
-  for i in range(7):
-    for j in range(i, 7):
-      stock.append([i, j])
-  stock = [[i, j] for i in range(7) for j in range(i, 7)]
+stock = [[i, j] for i in range(7) for j in range (i, 7)]
+doubles = stock[:-4:-2]
+on_hands = 7
 
-  player =[]
-  comp = []
+while not any ([double in stock[:on_hands * 2] for double in doubles]):
+  shuffle(stock)
 
-  i = 0
-  for i in range(7):
-    x = random.randint(1, len(stock)-1)
-    player.append(stock[x])
-    stock.pop(x)
-    
-  for i in range(7):
-    x = random.randint(1, len(stock)-1)
-    comp.append(stock[x])
-    stock.pop(x)
+for double in doubles:
+  if double in stock[ :on_hands * 2]:
+    snake = stock.pop(stock.index(double))
+    break
 
-  status_p = 0
-  status_c = 0
+computer, player = stock[:on_hands - 1], stock[on_hands - 1:on_hands * 2 -1]
+if randint(1, 2) == 2:
+  player, computer = computer, player
 
-  for i in range(7):
-    summa = sum(player[i])
-    if summa == 10:
-      status_p = 1
-    elif summa == 12:
-      status_p = 2
-    print(status_p)
+stock = stock[on_hands * 2 -1:]
 
-  print()
-  for i in range(7):
-    summa = sum(comp[i])
-    if summa == 10:
-      status_c = 1
-    elif summa == 12:
-      status_c = 2
-    print(status_c)
-  if status_c and status_p == 0:
-    dubl = 1
-snake = 0
+next_one = 'computer' if len(computer) > len(player) else ' player'
 
-if status_c or status_p == 1:
-  snake = [[5, 5]]
-if status_c or status_p == 2:
-  snake = [[6, 6]]
-if status_p > status_c:
-  status = "player"
-if status_p < status_c:
-  status = "computer"
-  
-print("Stock pieces:", stock)
-print("Computer pieces:", comp)
-print("Player pieces:", player)
-print("Domino snake:", snake)
-print("Status:", status)
-
-
-
-# player = (random.choices(stock, k=7))
-# print(player)
-# print()
-# comp = (random.choices(stock, k=7))
-# print(comp)
-
-
+print('   Stock pieces: {}\n\
+Computer pieces: {}\n\
+  Player pieces: {}\n\
+   Domino snake: [{}]\n\
+         Status: {}'.\
+            format(stock, computer, player, snake, next_one))
