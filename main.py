@@ -1,2 +1,8 @@
-series = ['Game of Thrones', 'Riverdale', 'Shameless', 'Doctor Who', 'Friends']
-print(series[3:5])
+stroka = input("")
+item = "@"
+
+stroka = stroka[::-1]
+index = stroka.index(item)
+
+stroka = (stroka[index+1:])
+print(stroka[::-1])
