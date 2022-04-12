@@ -1,7 +1,4 @@
-my_list = [3, 9, 27, 81, 243, 729, 2187]
-
-
-print(my_list[-1:]) # [2187]
-print(my_list[:]) # [3, 9, 27, 81, 243, 729, 2187]
-print(my_list[2:-1:-3]) # []
-print(my_list[2:0:-3]) # [27]
+a, b = (int(i) for i in input().split())
+N1 = a + b
+N2 = a - b
+print(N1 * N2)
