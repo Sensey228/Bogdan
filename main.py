@@ -1,8 +1,12 @@
-stroka = input("")
-item = "@"
+import random
 
-stroka = stroka[::-1]
-index = stroka.index(item)
+my_list = []
+list = []
+for i in range(100):
+  x = random.randint(0, 10000)
+  my_list.append(x)
 
-stroka = (stroka[index+1:])
-print(stroka[::-1])
+for i in range(100):
+  if my_list[i] % 5 == 0:
+    list.append(my_list[i])
+print(list)
