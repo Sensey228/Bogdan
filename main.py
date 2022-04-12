@@ -1,28 +1,34 @@
-from random import randint, shuffle
+# nums = [n for n in range(20)]
+# print(nums)
+# print(nums[2:5])
+# name = 'Python is not a snake'
+# print(name[::-1])
 
-stock = [[i, j] for i in range(7) for j in range (i, 7)]
-doubles = stock[:-4:-2]
-on_hands = 7
+# nums = [n * 2 for n in range(1, 21)]
+# print(nums)
+# print(nums[2:7])
 
-while not any ([double in stock[:on_hands * 2] for double in doubles]):
-  shuffle(stock)
+# str1 = 'Python is not just a mere snake'
+# print(str1[10:18])
 
-for double in doubles:
-  if double in stock[ :on_hands * 2]:
-    snake = stock.pop(stock.index(double))
-    break
+# print(str1[::-1])
+# print(str1[7::])
 
-computer, player = stock[:on_hands - 1], stock[on_hands - 1:on_hands * 2 -1]
-if randint(1, 2) == 2:
-  player, computer = computer, player
+# new_str = str1[:]
+# print(new_str)
 
-stock = stock[on_hands * 2 -1:]
+# my_list = ['Java', 'Python', 'Kotlin']
+# print(my_list[:2])
+# print(my_list[:99999999])
 
-next_one = 'computer' if len(computer) > len(player) else ' player'
 
-print('   Stock pieces: {}\n\
-Computer pieces: {}\n\
-  Player pieces: {}\n\
-   Domino snake: [{}]\n\
-         Status: {}'.\
-            format(stock, computer, player, snake, next_one))
+x = input()
+ 
+w = ""
+for i in x:
+    w = i + w
+ 
+if (x == w):
+    print("Yes")
+else:
+    print("No")
