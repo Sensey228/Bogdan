@@ -1,7 +1,8 @@
-a, b, c = (int(i) for i in input().split())
-k = 0
-d = 0
-while k < c:
-  k = k + b
-  d = d+1
-print(a*d)
+n = int(input())
+
+if(n % 2 == 0):
+  print(n//2)
+elif(n == 1):
+  print(0)
+else:
+  print(n)
