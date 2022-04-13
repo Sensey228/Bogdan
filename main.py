@@ -1,6 +1,11 @@
-a, b = (int(i) for i in input().split())
-c, d = (int(i) for i in input().split())
+letters = ['A', 'B', 'C', 'B']
 
-print("v1 =(",a, b,") & v2 = (",c ,d,")")
-print(a + c)
-print(b + d)
+my_iterator = iter(letters)
+
+print(next(my_iterator))
+	# 'A'
+print(next(my_iterator))
+	# 'B'
+print(next(my_iterator))
+	# 'C'
+print(next(my_iterator))
