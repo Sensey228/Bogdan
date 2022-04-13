@@ -1,10 +1,7 @@
-a, b = (int(i) for i in input().split())
-pod = b
-det = a
-k = 1
-while k > 0:
-  if pod - det > 0:
-    pod = pod - det
-  else:
-    print(det - pod)
-    k = 0
+a, b, c = (int(i) for i in input().split())
+k = 0
+d = 0
+while k < c:
+  k = k + b
+  d = d+1
+print(a*d)
