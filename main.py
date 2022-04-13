@@ -1,9 +1,5 @@
-first = input()
-second = input()
-Draw = "Ничья"
-if first > second:
-    print("The first one wins")
-elif second > "first":
-    print("The second one wins")
-else:
-    print(Draw)
+import random
+a = []
+for i in range(100):
+  a.append(random.randint(1,1000))
+a.sort()
