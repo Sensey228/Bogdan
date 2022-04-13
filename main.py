@@ -1,4 +1,7 @@
-a = int("5")
-print(a + "5") # line № 2 will throw an exception
-print(a * "5")
-print(ValueError)
+print(7 - 7 / 0 + 1)
+int('twenty')
+len(42)
+
+# TypeError -> # 3
+# ValueError -> # 2
+# ZeroDivisionError -> #1
