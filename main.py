@@ -1,8 +1,5 @@
-n = int(input())
+imena = ["dima", "andrei", "sasha", "maksim", "denis", "danil", "egor", "vlad", "igor"]
+for i in range(len(imena)):
+  print("Student",i,">", imena[i])
 
-if(n % 2 == 0):
-  print(n//2)
-elif(n == 1):
-  print(0)
-else:
-  print(n)
+
