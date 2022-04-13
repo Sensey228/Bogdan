@@ -29,6 +29,7 @@ Computer pieces: {}\n\
 print(70 * "=")
 print("Stock size:", len(stock))
 print("Computer pieces:", len(computer))
+print(snake)
 print()
 print("Your pices:")
 for i in range(len(player)):
