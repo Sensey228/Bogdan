@@ -1,5 +1,4 @@
-imena = ["dima", "andrei", "sasha", "maksim", "denis", "danil", "egor", "vlad", "igor"]
-for i in range(len(imena)):
-  print("Student",i,">", imena[i])
-
+word1 = input()
+word2 = input()
+print(word1 + word2)
 
