@@ -1,7 +1,9 @@
-print(7 - 7 / 0 + 1)
-int('twenty')
-len(42)
-
-# TypeError -> # 3
-# ValueError -> # 2
-# ZeroDivisionError -> #1
+first = input()
+second = input()
+Draw = "Ничья"
+if first > second:
+    print("The first one wins")
+elif second > "first":
+    print("The second one wins")
+else:
+    print(Draw)
