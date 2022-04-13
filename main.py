@@ -1,11 +1,7 @@
-letters = ['A', 'B', 'C', 'B']
+num = int(input())
+num = num 
 
-my_iterator = iter(letters)
-
-print(next(my_iterator))
-	# 'A'
-print(next(my_iterator))
-	# 'B'
-print(next(my_iterator))
-	# 'C'
-print(next(my_iterator))
+for i in range(1, num):
+  if num % i == 0:
+    print(i)
+print(num)
