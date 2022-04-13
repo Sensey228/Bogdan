@@ -1,10 +1,4 @@
-from time import perf_counter
-num = int(input())
-num = num 
-time = 1000000000
-for i in range(1, num):
-  if num % i == 0:
-    print(i)
-print(num)
-x = perf_counter()
-print(x)
+a = int("5")
+print(a + "5") # line № 2 will throw an exception
+print(a * "5")
+print(ValueError)
