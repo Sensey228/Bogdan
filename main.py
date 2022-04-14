@@ -31,12 +31,13 @@ Computer pieces: {}\n\
 winner = 0
 while winner == 0:
   
-  print(70 * "=")
+  print(100 * "=")
   print("Stock size:", len(stock))
   print("Computer pieces:", len(computer))
   print(snake)
   print()
   print("Your pices:")
+  
   for i in range(len(player)):
     print(i+1,":",player[i])
     print()
@@ -46,13 +47,13 @@ while winner == 0:
     print("Status: It's your turn to make a move. Enter your command.")
   
 
-  if next_one == "player":
+  if next_one != "computer":
     try:
       kost = int(input())
     except ValueError:
       print("Только числовые значения")
       kost = int(input())
-      
+    
     if kost == 0:
       stockr = random.randint(0, len(stock))
       player.append(stock[stockr])
@@ -60,16 +61,14 @@ while winner == 0:
       kost = kost - 1
       snake = snake + player[kost]
       player.pop(kost)
-      print(snake)
+      print('|'.join(map(str, snake)))
     if kost < 0:
       kost = kost * -1
       kost = kost - 1
       snake = player[kost] + snake
       player.pop(kost)
       print(snake)
-    
-    
-      
+
   if next_one == "computer":
     kost = input()
     comp_rev = len(computer) * -1
@@ -101,3 +100,4 @@ if len(player) == 0:
   print("Игрок победил!")
 if len(computer) == 0:
   print("Компьютер победил!")
+  
