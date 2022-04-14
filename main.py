@@ -47,30 +47,27 @@ while winner == 0:
     print("Status: Computer is about to make a move. Press Enter to continue...")
   else:
     print("Status: It's your turn to make a move. Enter your command.")
-  erro = 1
+    
   err = 1
   if next_one != "computer":
     while err == 1:
       try:
         kost = int(input())
+        snake + [player[kost]]
       except ValueError:
         print("Только числовые значения")
+      except IndexError:
+        print("Таких значений нету")
       else:
         err = 0
     
     if kost == 0:
-      stockr = random.randint(0, len(stock))
+      stockr = random.randint(0, len(stock)-1)
       player.append(stock[stockr])
+      stock.pop(stockr)
     if kost > 0:
-      while erro == 1:
-          try:
-            kost = kost - 1
-            snake = snake + [player[kost]]
-          except IndexError:
-            print("Таких значений нет")
-            kost = int(input())
-          else:
-            erro = 0
+      kost = kost - 1
+      snake = snake + [player[kost]]
       player.pop(kost)
       print(' '.join(map(str, snake)))
     if kost < 0:
@@ -87,6 +84,7 @@ while winner == 0:
     if kost == 0:
       stockr = random.randint(0, len(stock))
       computer.append(stock[stockr])
+      stock.pop(stockr)
     if kost > 0:
       kost = kost - 1
       snake = snake + [computer[kost]]
@@ -106,12 +104,6 @@ while winner == 0:
     next_one = "player"
   else:
     next_one = "computer"
-  # if len(snake) >= 7:
-  #   for i in range(3):
-  #     snake2 = snake2 + snake[i]
-  #   for i in range(3):
-  #     snake2 = snake2 + snake[len(snake) - 4 + i]
-  # print(' '.join(map(str, snake2)))
 if len(player) == 0:
   print("Игрок победил!")
 if len(computer) == 0:
