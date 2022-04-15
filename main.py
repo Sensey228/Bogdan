@@ -62,8 +62,8 @@ while winner == 0:
       try:
         kost = int(input())
         if kost < 0:
-          abs(kost)
-        kost_help = kost - 1
+          kost_help = abs(kost)
+        kost_help = kost_help - 1
         snake + [player[kost_help]]
       except ValueError:
         print("Только числовые значения")
