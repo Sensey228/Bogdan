@@ -27,16 +27,24 @@ Computer pieces: {}\n\
    Domino snake: [{}]\n\
          Status: {}'.\
             format(stock, computer, player, snake, next_one))
-
 snake = [snake]
 winner = 0
-snake2 = [[ ]]
 while winner == 0:
-  
+
   print(100 * "=")
   print("Stock size:", len(stock))
   print("Computer pieces:", len(computer))
-  print(' '.join(map(str, snake)))
+  snake2 = []
+  snake1 = 0
+  if len(snake) > 6:
+    snake1 = snake[-3::]
+    for i in range(3):
+      snake2 = snake2 + [snake[i]]
+    print(' '.join(map(str, snake2)),end=' ')
+    print("...", end=' ')
+    print(' '.join(map(str, snake1)))
+  else:
+    print(' '.join(map(str, snake)))
   print()
   print("Your pices:")
   
@@ -53,50 +61,65 @@ while winner == 0:
     while err == 1:
       try:
         kost = int(input())
-        snake + [player[kost]]
+        if kost < 0:
+          abs(kost)
+        kost_help = kost - 1
+        snake + [player[kost_help]]
       except ValueError:
         print("Только числовые значения")
       except IndexError:
         print("Таких значений нету")
       else:
         err = 0
+      try:
+        stockr = random.randint(0, len(stock) - 1)
+      except ValueError:
+        print("В стоке не осталось костей")
+        err = 1
+        if kost != 0:
+          err = 0
     
     if kost == 0:
-      stockr = random.randint(0, len(stock)-1)
+      stockr = random.randint(0, len(stock) - 1)
       player.append(stock[stockr])
       stock.pop(stockr)
     if kost > 0:
       kost = kost - 1
       snake = snake + [player[kost]]
       player.pop(kost)
-      print(' '.join(map(str, snake)))
     if kost < 0:
       kost = kost * -1
       kost = kost - 1
       snake = [player[kost]] + snake
       player.pop(kost)
-      print(' '.join(map(str, snake)))
 
   if next_one == "computer":
     kost = input()
     comp_rev = len(computer) * -1
     kost = random.randint(comp_rev, len(computer))
+    while err == 1:
+      try:
+        stockr = random.randint(0, len(stock) - 1)
+      except ValueError:
+        kost = random.randint(comp_rev, len(computer))
+        err = 1
+      else:
+        err = 0
+        
     if kost == 0:
-      stockr = random.randint(0, len(stock))
+      stockr = random.randint(0, len(stock) - 1)
       computer.append(stock[stockr])
       stock.pop(stockr)
     if kost > 0:
       kost = kost - 1
       snake = snake + [computer[kost]]
       computer.pop(kost)
-      print(' '.join(map(str, snake)))
       
     if kost < 0:
       kost = kost * -1
       kost = kost - 1
       snake = [computer[kost]] + snake
       computer.pop(kost)
-      print(' '.join(map(str, snake)))
   if len(player) or len(computer) == 0:
     winner = 0
 
@@ -104,8 +127,10 @@ while winner == 0:
     next_one = "player"
   else:
     next_one = "computer"
-if len(player) == 0:
-  print("Игрок победил!")
-if len(computer) == 0:
-  print("Компьютер победил!")
-  
+    
+  if len(player) == 0:
+    print("Игрок победил!")
+    break
+  if len(computer) == 0:
+    print("Компьютер победил!")
+    break
