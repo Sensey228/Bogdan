@@ -37,14 +37,9 @@ while winner == 0:
   snake2 = []
   snake1 = 0
   if len(snake) > 6:
-    snake1 = snake[-3::]
-    for i in range(3):
-      snake2 = snake2 + [snake[i]]
-    print(' '.join(map(str, snake2)),end=' ')
-    print("...", end=' ')
-    print(' '.join(map(str, snake1)))
+    print(*snake[:3], '...', *snake[len(snake) - 3:], sep='')
   else:
-    print(' '.join(map(str, snake)))
+    print(''.join(map(str, snake)))
   print()
   print("Your pices:")
   
@@ -63,7 +58,9 @@ while winner == 0:
         kost = int(input())
         if kost < 0:
           kost_help = abs(kost)
-        kost_help = kost_help - 1
+          kost_help = kost_help - 1
+        else:
+          kost_help = kost - 1
         snake + [player[kost_help]]
       except ValueError:
         print("Только числовые значения")
@@ -129,7 +126,7 @@ while winner == 0:
     next_one = "computer"
     
   if len(player) == 0:
-    print("Игрок победил!")
+    print(70 * "Игрок победил!")
     break
   if len(computer) == 0:
     print("Компьютер победил!")
