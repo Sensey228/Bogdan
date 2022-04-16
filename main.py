@@ -75,21 +75,30 @@ while winner == 0:
         err = 1
         if kost != 0:
           err = 0
-    
-    if kost == 0:
-      stockr = random.randint(0, len(stock) - 1)
-      player.append(stock[stockr])
-      stock.pop(stockr)
-    if kost > 0:
-      kost = kost - 1
-      snake = snake + [player[kost]]
-      player.pop(kost)
-    if kost < 0:
-      kost = kost * -1
-      kost = kost - 1
-      snake = [player[kost]] + snake
-      player.pop(kost)
 
+      if kost == 0:
+        stockr = random.randint(0, len(stock) - 1)
+        player.append(stock[stockr])
+        stock.pop(stockr)
+        err = 0
+      if kost > 0 and kost <= len(player):
+        if player[kost - 1][0] == snake[-1][1]:
+            snake.append(player.pop(kost - 1))
+        elif player[kost - 1][1] == snake[-1][1]:
+            player[kost - 1][0], player[kost - 1][1] = player[kost - 1][1], player[kost - 1][0]
+            snake.append(player.pop(kost - 1))
+        else:
+            print("""You can't put this piece in snake. Try again""")
+            err = 1
+      if len(player) >= abs(kost) and kost < 0 :
+        if player[kost - 1][1] == snake[0][0]:
+            snake.insert(0, player.pop(kost - 1))
+        elif player[kost - 1][0] == snake[0][0]:
+            player[kost - 1][0], player[kost - 1][1] = player[kost - 1][1], player[kost - 1][0]
+            snake.insert(0, player.pop(kost - 1))
+        else:
+            print("""You can't put this piece in snake. Try again1""")
+            err = 1
   if next_one == "computer":
     kost = input()
     comp_rev = len(computer) * -1
@@ -126,7 +135,7 @@ while winner == 0:
     next_one = "computer"
     
   if len(player) == 0:
-    print(70 * "Игрок победил!")
+    print("Игрок победил!")
     break
   if len(computer) == 0:
     print("Компьютер победил!")
