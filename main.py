@@ -1,14 +1,12 @@
-def uppercase_decorator(function):
-    def wrapper():
-        func = function()
-        make_uppercase = func.upper()
-        return make_uppercase
+from collections import defaultdict
 
-    return wrapper
+dogs = ["pomeranian", "labrador", "corgi", "corgi", "golden retriever", "corgi", "labrador"]
 
-word = input()
-@uppercase_decorator
-def say_hi():
-    return word
-print(say_hi())
+dogs_dict = defaultdict(int)
 
+for dog in dogs:
+    dogs_dict[dog] += 1
+
+print(dogs_dict["corgi"])
+print(dogs_dict["labrador"])
+print(dogs_dict["pomeranian"])
