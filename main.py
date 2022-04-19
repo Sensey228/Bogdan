@@ -1,12 +1,7 @@
-from collections import defaultdict
+fruit_dictionary = {}
+fruit_dictionary.setdefault("apple", "green")
+fruit_dictionary.setdefault("banana", "yellow")
+fruit_dictionary.setdefault("orange", "orange")
 
-dogs = ["pomeranian", "labrador", "corgi", "corgi", "golden retriever", "corgi", "labrador"]
 
-dogs_dict = defaultdict(int)
-
-for dog in dogs:
-    dogs_dict[dog] += 1
-
-print(dogs_dict["corgi"])
-print(dogs_dict["labrador"])
-print(dogs_dict["pomeranian"])
+print(fruit_dictionary.setdefault("apple", "red"))
