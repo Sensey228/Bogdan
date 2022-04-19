@@ -1,7 +1,8 @@
-fruit_dictionary = {}
-fruit_dictionary.setdefault("apple", "green")
-fruit_dictionary.setdefault("banana", "yellow")
-fruit_dictionary.setdefault("orange", "orange")
+a = -2
+b = 10
+c = a / b
 
-
-print(fruit_dictionary.setdefault("apple", "red"))
+if c >= 0:
+    print(c)
+else:
+    raise Exception('Something went wrong!')
