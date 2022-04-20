@@ -1,8 +1,5 @@
-a = -2
-b = 10
-c = a / b
-
-if c >= 0:
-    print(c)
-else:
-    raise Exception('Something went wrong!')
+A = int(input())
+x = 0
+while x**2 <= A:
+  x = x + 1
+print(x - 1)
